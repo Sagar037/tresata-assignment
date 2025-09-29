@@ -1,0 +1,31 @@
+.footer-btn-class {
+    position: fixed;
+    bottom: 26px;
+    right: 60px;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background-color: #0758ee;
+    color: white;
+    font-size: 36px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-icon {
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 18px;
+    pointer-events: none;
+    margin-top: 5px;
+}
+
+.todo-main {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 10px;
+    text-align: center;
+}

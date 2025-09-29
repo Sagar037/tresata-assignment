@@ -1,0 +1,20 @@
+.textarea-container {
+    padding: 10px 40px 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.textarea-container:focus {
+    border-color: #0758ee;
+}
+
+.textarea-container:hover {
+    border-color: #0758ee;
+}
+
+.textarea-container textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
