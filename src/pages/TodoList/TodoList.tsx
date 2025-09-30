@@ -11,7 +11,9 @@ import { RootState } from "../../store/store";
 import { useNavigate } from "react-router-dom";
 import { deleteList } from "../../store/TodoList/TodoListDataSlice";
 import { useEffect, useMemo, useState } from "react";
+import { IconBaseProps } from "react-icons";
 
+const SearchIcon = FaSearch as React.ComponentType<IconBaseProps>;
 const TodoList: React.FC = () => {
     const [searchValue, setSearchValue] = useState('')
     const todoListItems = useSelector((state: RootState) => state.data.list);
@@ -36,29 +38,35 @@ const TodoList: React.FC = () => {
     return (
         <div className="todo-main">
             <Header title='TODO APP' />
-            <Input placeholder='Search To-do' icon={<FaSearch className="search-icon" />} type='text' onChange={(e) => setSearchValue(e.target.value)} />
-            <Accordian title={`In Progress (${listInprogress.length})`} content={
-                <>
-                    {listInprogress.map((rec: TodoListType) => (
-                        <Task taskData={rec} key={rec.id} onEditClick={onEditTaskClick} onDeleteClick={onDeleteTask} />
-                    ))}
-                </>
-            } expanded={true} />
-            <Accordian title={`Pending (${listPending.length})`} content={
-                <>
-                    {listPending.map((rec: TodoListType) => (
-                        <Task taskData={rec} key={rec.id} onEditClick={onEditTaskClick} onDeleteClick={onDeleteTask} />
-                    ))}
-                </>
-            } expanded={false} />
-            <Accordian title={`Completed (${listCompleted.length})`} content={
-                <>
-                    {listCompleted.map((rec: TodoListType) => (
-                        <Task taskData={rec} key={rec.id} onEditClick={onEditTaskClick} onDeleteClick={onDeleteTask} />
-                    ))}
-                </>
-            } expanded={false} />
-            <Button className='footer-btn-class' onClick={onAddClick}>+</Button>
+            <div className="todo-body">
+                <div className="acc-div">
+                    <Input placeholder='Search To-do' icon={<SearchIcon className="search-icon" />} type='text' onChange={(e) => setSearchValue(e.target.value)} />
+                    <Accordian title={`In Progress (${listInprogress.length})`} content={
+                        <>
+                            {listInprogress.map((rec: TodoListType) => (
+                                <Task taskData={rec} key={rec.id} onEditClick={onEditTaskClick} onDeleteClick={onDeleteTask} />
+                            ))}
+                        </>
+                    } expanded={true} />
+                    <Accordian title={`Pending (${listPending.length})`} content={
+                        <>
+                            {listPending.map((rec: TodoListType) => (
+                                <Task taskData={rec} key={rec.id} onEditClick={onEditTaskClick} onDeleteClick={onDeleteTask} />
+                            ))}
+                        </>
+                    } expanded={false} />
+                    <Accordian title={`Completed (${listCompleted.length})`} content={
+                        <>
+                            {listCompleted.map((rec: TodoListType) => (
+                                <Task taskData={rec} key={rec.id} onEditClick={onEditTaskClick} onDeleteClick={onDeleteTask} />
+                            ))}
+                        </>
+                    } expanded={false} />
+
+                </div>
+                <Button className='footer-btn-class' onClick={onAddClick}>+</Button>
+            </div>
+
         </div>
     )
 }

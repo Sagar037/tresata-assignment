@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, SetStateAction, useMemo, useState } from "react"
+import { FormEvent, useMemo, useState } from "react"
 import Button from "../../../components/atoms/Button/Button"
 import Input from "../../../components/atoms/Input/Input"
 import TextArea from "../../../components/atoms/TextArea/TextArea"
@@ -8,10 +8,12 @@ import { TodoListType } from "../../../types/TodoList/TodoListTypes"
 import { useDispatch, useSelector } from "react-redux"
 import { AppDispatch, RootState } from "../../../store/store"
 import { addList, updateList } from "../../../store/TodoList/TodoListDataSlice"
-import { useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom"
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom"
 import Select from "../../../components/atoms/Select/Select"
 import { TiArrowLeft } from "react-icons/ti";
+import { IconBaseProps } from "react-icons"
 
+const ArrowLeftIcon = TiArrowLeft as React.ComponentType<IconBaseProps>;
 const AddTask: React.FC = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -60,7 +62,7 @@ const AddTask: React.FC = () => {
     }
     return (
         <div className="form-div">
-            <Header title={isEdit ? "Edit Task" : "Add Task"} prevIcons={<span onClick={onCancelClick}><TiArrowLeft size={60} /></span>} />
+            <Header title={isEdit ? "Edit Task" : "Add Task"} prevIcons={<span onClick={onCancelClick}><ArrowLeftIcon size={60} /></span>} />
             <form className="form-container" onSubmit={onTaskAdd}>
                 <Input value={title} placeholder="Enter the Title" type={"text"} onChange={(e) => setTitle(e.target.value)} required />
                 <TextArea value={description} placeholder="Enter the description" onChange={(e) => setDescription(e.target.value)} required />

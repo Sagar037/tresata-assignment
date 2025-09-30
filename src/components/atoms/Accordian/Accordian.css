@@ -14,10 +14,11 @@
   padding: 16px 20px;
   cursor: pointer;
   transition: background 0.3s;
+  background-color: #eceaea;
 }
 
 .accordion-header:hover {
-  background-color: #f7f7f7;
+  background-color: #b2c7f5;
 }
 
 .arrow {

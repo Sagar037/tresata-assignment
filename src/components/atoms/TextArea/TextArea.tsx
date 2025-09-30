@@ -1,4 +1,4 @@
-import { ChangeEventHandler, ReactElement, ReactNode } from "react";
+import { ChangeEventHandler } from "react";
 import './TextArea.css';
 
 interface TextAreaProps {

@@ -1,7 +1,4 @@
 .footer-btn-class {
-    position: fixed;
-    bottom: 26px;
-    right: 60px;
     width: 60px;
     height: 60px;
     border: none;
@@ -12,6 +9,7 @@
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: end;
 }
 
 .search-icon {
@@ -28,4 +26,20 @@
     padding: 5px;
     gap: 10px;
     text-align: center;
+    height: 100%;
+}
+
+.todo-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.acc-div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
